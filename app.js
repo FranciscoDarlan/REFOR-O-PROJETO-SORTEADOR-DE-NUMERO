@@ -9,6 +9,18 @@ function sortear() {
     let numeroSorteado = [];
     let variavelVaziaParaOsNumerosSorteados;
 
+    
+    if (deTalNumero >= ateTalNumero) {
+        alert('CAMPO "DO NÚMERO" DEVE SER MENOR QUE O CAMPO "ATÉ O NÚMERO", PREENCHA NOVAMENTE COM AS ORIENTAÇÕES.');
+        return;
+    }
+
+    if (inputQuantidadeNumero > (ateTalNumero -  deTalNumero + 1)) {
+        alert('campo "quantidade" deve ser menor ou igual ao intervalo')
+    
+        return;
+    }
+
     //looping de repetição até chegar no valor que informei sempre acrescentando com ++
     for (let i = 0; i < inputQuantidadeNumero; i++) {
         variavelVaziaParaOsNumerosSorteados = gerarNumeroAleatorio(deTalNumero, ateTalNumero);
@@ -17,6 +29,8 @@ function sortear() {
         //loopping booleano enquanto a resposta for true 
         while (numeroSorteado.includes(variavelVaziaParaOsNumerosSorteados)) {
             variavelVaziaParaOsNumerosSorteados = gerarNumeroAleatorio(deTalNumero, ateTalNumero);
+        
+            alert('Tentando obter um número inédito')
         }
 
         numeroSorteado.push(variavelVaziaParaOsNumerosSorteados);
